@@ -51,7 +51,7 @@ To participate in the projects, you will need:
 ## License
 
 This project is intended for educational use and classroom exploration.  
-Feel free to fork and adapt under the terms of the [MIT License](LICENSE).
+Feel free to fork and adapt under the terms of the [MIT License](LICENSE.md).
 
 ---
 
