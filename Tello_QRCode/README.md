@@ -39,7 +39,7 @@ This project demonstrates how to control a DJI Tello mini-drone using QR codes. 
 
 1.  **Navigate to the project directory:**
     ```sh
-    cd IDEALFall2025/test_QRCode
+    cd IDEALFall2025/Tello_QRCode
     ```
 
 2.  **Create a virtual environment (recommended):**
@@ -83,4 +83,23 @@ The program will:
 
 This project uses QR codes with specific text data. To use the drone's features, you must generate and use physical QR codes with the following data:
 
+
+| QR Code Data | Command |
+|:---:|:---|
+| `stop` | Land |
+| `flip_forward` | Flip Forward |
+| `flip_back` | Flip Backward |
+| `flip_left` | Flip Left |
+| `flip_right` | Flip Right |
+
+
+## Learnings and Challenges
+
+*   **Real-time video processing:** Successfully processing a live video stream from the drone's camera with minimal latency.
+*   **Computer vision integration:** Using the `cv2.QRCodeDetector` to accurately detect and decode QR codes.
+*   **Robotics control:** Implementing simple autonomous control based on visual input. A key learning is the importance of robust code to handle cases where markers are not visible.
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE.md).
 
