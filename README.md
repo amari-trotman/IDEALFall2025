@@ -17,6 +17,8 @@ This repository contains modular subfolders that align with different hands-on p
 
 - [`Tello_Aruco`](./Tello_Aruco) – ArUco marker tracking with the Tello drone.
 - [`Tello_GestureCTRL`](./Tello_GestureCTRL) – Gesture-based control of the Tello using computer vision.
+- [`Tello_PoseCTRL`](./Tello_PoseCTRL) – Pose-based control of the Tello using computer vision.
+- [`Tello_QRCode`](./Tello_QRCode) – QR code tracking with the Tello drone.
 - [`Tello_YOLO`](./Tello_YOLO) – Object detection using the YOLO (You Only Look Once) model.
 
 Each folder contains project-specific code, resources, and instructions.
