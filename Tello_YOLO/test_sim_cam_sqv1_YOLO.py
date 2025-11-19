@@ -14,7 +14,7 @@ is_running = True
 # Load a pre-trained YOLOv8 model. 'yolov8n.pt' is the nano version, which is
 # fast and suitable for real-time applications like this.
 # You can choose a larger model for more accuracy if needed, but it will be slower.
-model = YOLO('yolov8n.pt')
+model = YOLO('best_GPU_11152025.pt')
 
 # Thread for fetching video frames from the Tello
 def video_read_thread():
@@ -27,6 +27,7 @@ def video_read_thread():
         if frame_read.frame is not None:
             with frame_lock:
                 latest_frame = frame_read.frame
+                latest_frame = cv2.cvtColor(latest_frame, cv2.COLOR_BGR2RGB)
         time.sleep(0.01)
     tello.streamoff()
 
@@ -35,7 +36,7 @@ def video_read_thread():
 def command_thread_function():
     global is_running
     try:
-        tello.takeoff()
+        # tello.takeoff()
         tello.move_forward(100)
         tello.rotate_counter_clockwise(90)
         tello.move_forward(100)
@@ -76,10 +77,21 @@ if __name__ == "__main__":
                 # Perform YOLO object detection on the frame.
                 # 'stream=True' is recommended for video processing.
                 results = model.track(frame_to_display, persist=True, show=False, verbose=False)
+                # for result in results:
+                #     class_ids = result.boxes.cls
+                #     for i,cls_id in enumerate(class_ids):
+                #         cls_id = int(cls_id)
+                #
+                #         if cls_id == 3:
+                #             result.boxes.cls[i]= 4
+                #         elif cls_id == 4:
+                #             result.boxes.cls[i] = 3
 
                 # Get the annotated frame from the results
                 # `results[0].plot()` returns the frame with bounding boxes and labels drawn on it.
                 annotated_frame = results[0].plot()
+                # print(annotated_frame)
+
 
                 # The `plot()` method already handles the color space,
                 # so we no longer need the cvtColor conversion.
